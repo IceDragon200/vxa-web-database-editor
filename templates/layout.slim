@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    /link(async href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,400italic|Source+Code+Pro" rel="stylesheet" type="text/css")
+    link(rel="stylesheet" type="text/css" href="/css/reset.css")
+    link(rel="stylesheet" type="text/css" href="/css/main.css")
+    meta(charset="utf-8")
+
+  body
+    == yield
+    script(type="text/javascript" src="/components/jquery/dist/jquery.js")
+    script(type="text/javascript" src="/components/handlebars/handlebars.js")
+    script(type="text/javascript" src="/components/ember/ember.js")
+    script(type="text/javascript" src="/components/ember-data/ember-data.js")
+    script(type="text/javascript" src="/js/app.js")

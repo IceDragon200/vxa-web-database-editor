@@ -1,0 +1,124 @@
+
+@import "profoundgrid/sass/grid/_grid.scss";
+
+// //////////////////////
+// CONFIG
+// //////////////////////
+
+$total_width: 100%;
+$container_margin: 1%;
+$gutter_width: 2%;
+$max_width: 100%;
+$total_columns: 4;
+
+body {
+  width: 90%;
+  margin: auto;
+  color: #333;
+  font-family: "Source Sans Pro";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.75em; }
+h3 { font-size: 2.50em; }
+h4 { font-size: 2.25em; }
+h5 { font-size: 2em; }
+h6 { font-size: 1.5em; }
+
+a, a:hover, a:visited, a:focus {
+  color: #333;
+}
+
+nav {
+  ol {
+    background-color: #333;
+    color: #EEE;
+    display: block;
+
+    a, a:hover, a:visited, a:focus {
+      color: #EEE;
+    }
+
+    li {
+      display: inline-block;
+      padding: 8px;
+      padding-bottom: 12px;
+      transition: 0.02s background-color;
+
+      &:hover {
+        background-color: rgba(0,0,0,0.02)
+      }
+    }
+  }
+}
+
+input, select, textarea {
+  width: 100%;
+}
+
+select.items {
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-family: "Source Code Pro";
+}
+
+table {
+   border: 1px solid #EEE;
+   border-collapse: collapse;
+   font-size: .875rem;
+   /* padding: 8px; */
+}
+
+th {
+  border-bottom: 1px solid #333;
+  background-color: #eee;
+  color: #999;
+  font-weight: 400;
+}
+
+th, tr, td {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table.features {
+  width: 100%;
+}
+
+.group {
+  padding: 8px;
+  margin: 8px;
+  background-color: #EEE;
+  border-radius: 8px;
+
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.75em; }
+  h3 { font-size: 1.50em; }
+  h4 { font-size: 1.25em; }
+  h5 { font-size: 1.125em; }
+  h6 { font-size: 1.05em; }
+
+  h2 {
+    padding: 4px;
+    border-bottom: 2px solid #DDD;
+    margin-bottom: 2px;
+  }
+}
+
+.note, .description {
+  textarea {
+    width: 100%
+  }
+}
+
+@include generate_helper_classes();
+
+.row {
+  display: inline-block;
+}

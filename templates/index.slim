@@ -1,0 +1,129 @@
+nav
+  ol
+    li
+      a(href="/actors") Actors
+    li
+      a(href="/classes") Classes
+    li
+      a(href="/skills") Skills
+    li
+      a(href="/items") Items
+    li
+      a(href="/weapons") Weapons
+    li
+      a(href="/armors") Armors
+    li
+      a(href="/enemies") Enemies
+    li
+      a(href="/troops") Troops
+    li
+      a(href="/states") States
+    li
+      a(href="/animations") Animations
+    li
+      a(href="/tilesets") Tilesets
+    li
+      a(href="/common_events") Common Events
+    li
+      a(href="/system") System
+    li
+      a(href="/terms") Terms
+
+.actors-page
+  h1 Actors
+  .col1
+    / Actor List
+    .group
+      select.items(size="20")
+        /- for actor in DBE.actors
+        /  - next unless actor
+        /  option = "%d: %s" % [actor.id, actor.name]
+
+  .col2.push1
+    .group
+      h2 General Settings
+
+      .row
+        dl.col2
+          dt Name:
+          dd
+            input(type="text" value="{{actor.name}}")
+        dl.col2.push2
+          dt Nickname:
+          dd
+            input(type="text" value="{{actor.nickname}}")
+      .row
+        dl.col2
+          dt Class:
+          dd
+            input(list="classes")
+        dl.col1.push2
+          dt Initial Level
+          dd
+            input(type="number" value="{{actor.initial_level}}")
+        dl.col1.push3
+          dt Max Level
+          dd
+            input(type="number" value="{{actor.max_level}}")
+
+      .row
+        dl.description
+          dt Description
+          dd
+            textarea(rows="2" cols="80" value="{{actor.description}}")
+    .group
+      h2 Graphic
+
+    .group
+      h2 Starting Equipment
+      .row
+        dl
+          dt Weapon:
+          dd
+            input(list="weapons")
+        dl
+          dt Shield:
+          dd
+            input(list="armors_shield")
+        dl
+          dt Head:
+          dd
+            input(list="armors_head")
+        dl
+          dt Body:
+          dd
+            input(list="armors_body")
+        dl
+          dt Accessory:
+          dd
+            input(list="armors_accessory")
+
+  .col1.push3
+    .group
+      h2 Features
+      table.features
+        tr
+          th Kind
+          th Content
+        tr
+          td Element Rate
+          td | [Physical] * 100%
+
+    .group
+      .row
+        dl.note
+          dt Note
+          dd
+            textarea(rows="20" value="{{actor.note}}")
+
+datalist(id="classes")
+datalist(id="weapons")
+datalist(id="armors")
+datalist(id="armors_shield")
+datalist(id="armors_head")
+datalist(id="armors_body")
+datalist(id="armors_accessory")
+
+  /- for klass in DBE.classes
+  /  - next unless klass
+  /  option(id="#{{klass.id}}" value="#{{klass.id}}: #{{klass.name}}")
