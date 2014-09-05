@@ -1,0 +1,7 @@
+{
+  "name": "web-database-editor",
+  "dependencies": {
+    "jquery": "^1.11.1",
+    "underscore": "^1.8.0"
+  }
+}
