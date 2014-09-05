@@ -1,0 +1,86 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-bolt
+    | Skills
+
+.editor#skill-page
+  .col-1_5
+    .group#skills
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      == partial :'partial/row-name__icon'
+      == partial :'partial/row-description'
+
+      .row
+        dl.col-1_2
+          dt Skill Type
+          dd
+            input#stype_id list="data-skill_types"
+
+        dl.col-1_4
+          dt MP Cost
+          dd
+            input#mp_cost type="number" value="0"
+
+        dl.col-1_4
+          dt TP Cost
+          dd
+            input#tp_cost type="number" value="0"
+
+      .row
+        dl.col-1_2
+          dt Scope
+          dd
+            == partial :'partial/select-scope'
+
+        dl.col-1_2
+          dt Occasion
+          dd
+            == partial :'partial/select-occasion'
+
+    == partial :'partial/group-invocation'
+
+    .group#using_message
+      h2 Using Message
+      .row
+        dl.col-1_4
+          | (User Name)
+        dl.col-3_4
+          input#message1 type="text" value=""
+
+      .row
+        dl.col-1_1
+          input#message2 type="text" value=""
+
+      .row
+        .col-1_3
+          input type="button" value="'casts *!'"
+        .col-1_3
+          input type="button" value="'does *!'"
+        .col-1_3
+          input type="button" value="'uses *!'"
+
+    .group#using_message
+      h2 Required Weapon
+      .row
+        dl.col-1_2
+          dt Weapon Type 1
+          dd
+            input#required_wtype_id1 list="data-weapon_types"
+        dl.col-1_2
+          dt Weapon Type 2
+          dd
+            input#required_wtype_id2 list="data-weapon_types"
+
+  .col-3_10
+    == partial :'partial/group-damage'
+    == partial :'partial/group-effects'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

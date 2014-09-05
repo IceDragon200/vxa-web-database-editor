@@ -1,0 +1,97 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-child
+    | Actors
+
+.editor#actor-page
+  .col-1_5
+    .group#actors
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      .row
+        dl.col-1_2
+          dt Name
+          dd
+            input#name type="text" value=""
+        dl.col-1_2
+          dt Nickname
+          dd
+            input#nickname type="text" value=""
+
+      .row
+        dl.col-1_2
+          dt Class
+          dd
+            input#class_id list="data-classes"
+        dl.col-1_4
+          dt Initial Level
+          dd
+            input#initial_level type="number" value=""
+        dl.col-1_4
+          dt Max Level
+          dd
+            input#max_level type="number" value=""
+
+      == partial :'partial/row-description'
+
+    .group#graphic
+      h2 Graphic
+      .row
+        .col-1_2
+          .col-1_1
+            .face-graphic
+              //-
+          .col-1_2
+            input#face_name type="text" value=""
+          .col-1_2
+            input#face_index type="number" value="0"
+
+        .col-1_2
+          .col-1_1
+            .character-graphic
+              //-
+          .col-1_2
+            input#character_name type="text" value=""
+          .col-1_2
+            input#character_index type="number" value="0"
+
+    .group#equipment
+      h2 Starting Equipment
+      .row
+        dl.col-1_2
+          dt Weapon:
+          dd
+            input#weapon1 list="data-weapons"
+        dl.col-1_2 style="display: none;"
+          dt Weapon 2:
+          dd
+            input#weapon2 list="data-weapons"
+      .row
+        dl.col-1_1
+          dt Shield:
+          dd
+            input#shield list="data-armors_shield"
+        dl.col-1_1
+          dt Head:
+          dd
+            input#head list="data-armors_head"
+        dl.col-1_1
+          dt Body:
+          dd
+            input#body list="data-armors_body"
+        dl.col-1_1
+          dt Accessory:
+          dd
+            input#accessory list="data-armors_accessory"
+
+  .col-3_10
+    == partial :'partial/group-features'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

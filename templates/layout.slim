@@ -1,15 +1,102 @@
 doctype html
 html
   head
-    /link(async href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,400italic|Source+Code+Pro" rel="stylesheet" type="text/css")
-    link(rel="stylesheet" type="text/css" href="/css/reset.css")
-    link(rel="stylesheet" type="text/css" href="/css/main.css")
-    meta(charset="utf-8")
+    meta charset="utf-8"
+
+    title
+      | Database Editor
+
+    link rel="stylesheet" type="text/css" href="/css/reset.css"
+    link rel="stylesheet" type="text/css" href="/css/main.css"
+    link rel="stylesheet" type="text/css" href="/css/font-awesome.css"
 
   body
+    nav.tabs
+      ol
+        li#tab-home
+          a href="/"
+            i.fa.fa-fw.fa-database
+        li#tab-actor
+          a href="/actors"
+            i.fa.fa-fw.fa-child
+            | Actors
+        li#tab-class
+          a href="/classes"
+            i.fa.fa-fw.fa-graduation-cap
+            | Classes
+        li#tab-skill
+          a href="/skills"
+            i.fa.fa-fw.fa-bolt
+            | Skills
+        li#tab-item
+          a href="/items"
+            i.fa.fa-fw.fa-soccer-ball-o
+            | Items
+        li#tab-weapon
+          a href="/weapons"
+            i.fa.fa-fw.fa-wrench
+            | Weapons
+        li#tab-armor
+          a href="/armors"
+            i.fa.fa-fw.fa-shield
+            | Armors
+        li#tab-enemy
+          a.disabled href="/enemies"
+            i.fa.fa-fw.fa-paw
+            | Enemies
+        li#tab-troop
+          a.disabled href="/troops"
+            i.fa.fa-fw.fa-group
+            | Troops
+        li#tab-state
+          a href="/states"
+            i.fa.fa-fw.fa-cloud
+            | States
+        li#tab-animation
+          a.disabled href="/animations"
+            i.fa.fa-fw.fa-play
+            | Animations
+        li#tab-tileset
+          a.disabled href="/tilesets"
+            i.fa.fa-fw.fa-cube
+            | Tilesets
+        li#tab-common_event
+          a.disabled href="/common_events"
+            i.fa.fa-fw.fa-list
+            | Common Events
+        li#tab-system
+          a.disabled href="/system"
+            i.fa.fa-fw.fa-cog
+            | System
+        li#tab-terms
+          a.disabled href="/terms"
+            i.fa.fa-fw.fa-book
+            | Terms
+
     == yield
-    script(type="text/javascript" src="/components/jquery/dist/jquery.js")
-    script(type="text/javascript" src="/components/handlebars/handlebars.js")
-    script(type="text/javascript" src="/components/ember/ember.js")
-    script(type="text/javascript" src="/components/ember-data/ember-data.js")
-    script(type="text/javascript" src="/js/app.js")
+
+    datalist#data-actors data-group="actors"
+    datalist#data-animations data-group="animations"
+    datalist#data-armors data-group="armors"
+    datalist#data-armors_shield data-group="armors_shield"
+    datalist#data-armors_head data-group="armors_head"
+    datalist#data-armors_body data-group="armors_body"
+    datalist#data-armors_accessory data-group="armors_accessory"
+    datalist#data-classes data-group="classes"
+    datalist#data-common_events data-group="common_events"
+    datalist#data-enemies data-group="enemies"
+    datalist#data-items data-group="items"
+    datalist#data-skills data-group="skills"
+    datalist#data-states data-group="states"
+    datalist#data-tilesets data-group="tilesets"
+    datalist#data-troops data-group="troops"
+    datalist#data-weapons data-group="weapons"
+
+    script type="text/javascript" src="/components/jquery/dist/jquery.js"
+    script type="text/javascript" src="/components/underscore/underscore.js"
+    script type="text/javascript" src="/js/rpg.js"
+    script type="text/javascript" src="/js/database_editor.js"
+    script type="text/javascript" src="/js/renderer.js"
+    script type="text/javascript" src="/js/data.js"
+    script type="text/javascript" src="/js/events.js"
+    script type="text/javascript" src="/js/boot.js"

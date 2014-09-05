@@ -1,0 +1,54 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-soccer-ball-o
+    | Items
+
+.editor#item-page
+  .col-1_5
+    .group#items
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      == partial :'partial/row-name__icon'
+      == partial :'partial/row-description'
+
+      .row
+        dl.col-1_2
+          dt Item Type
+          dd
+            input#itype_id list="data-item_types"
+
+        dl.col-1_4
+          dt Price
+          dd
+            input#price type="number" value="0"
+
+        dl.col-1_4
+          dt Consume
+          dd
+            input#consumable value="false"
+
+      .row
+        dl.col-1_2
+          dt Scope
+          dd
+            == partial :'partial/select-scope'
+
+        dl.col-1_2
+          dt Occasion
+          dd
+            == partial :'partial/select-occasion'
+
+    == partial :'partial/group-invocation'
+
+  .col-3_10
+    == partial :'partial/group-damage'
+    == partial :'partial/group-effects'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

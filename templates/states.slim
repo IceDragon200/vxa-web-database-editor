@@ -1,0 +1,132 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-cloud
+    | States
+
+.editor#state-page
+  .col-1_5
+    .group#states
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      == partial :'partial/row-name__icon'
+      //-== partial :'partial/row-description'
+
+      .row
+        dl.col-1_2
+          dt Restriction
+          dd
+            select#restriction
+              option value="0"
+                | None
+              option value="1"
+                | Attack an Enemy
+              option value="2"
+                | Attack anyone
+              option value="3"
+                | Attack an ally
+              option value="4"
+                | Cannot move
+
+        dl.col-1_4
+          dt Priority
+          dd
+            input#priority type="number" value="100"
+
+    .group#removal_conditions
+      h2 Removal Conditions
+      .row
+        dl.col-1_2
+          input#remove_at_battle_end type="checkbox"
+          span Remove at Battle End
+        dl.col-1_2
+          input#remove_by_restriction type="checkbox"
+          span Remove by Restriction
+      hr
+      .row
+        dl.col-1_2
+          span Auto-removal Timing
+        dl.col-1_2
+          select#auto_removal_timing
+            option value="0"
+              | None
+            option value="1"
+              | Action End
+            option value="2"
+              | Turn End
+      .row
+        dl.col-1_2
+          span Duration in turns
+        dl.col-1_2
+          .col-3_8
+            input#min_turns type="number" value="0"
+          .col-2_8 style="vertical-align: middle; text-align: center; font-size: 150%;"
+            i.fa.fa-fw.fa-random
+          .col-3_8
+            input#max_turns type="number" value="0"
+      hr
+      .row
+        dl.col-1_2
+          input#remove_by_damage type="checkbox"
+          span Remove by damage
+        dl.col-1_2
+          .col-3_4
+            input#chance_by_damage type="number" value="0"
+          .col-1_4
+            | %
+
+      .row
+        dl.col-1_2
+          input#remove_by_walking type="checkbox"
+          span Remove by walking
+        dl.col-1_2
+          .col-3_4
+            input#steps_to_remove type="number" value="0"
+          .col-1_4
+            | steps
+
+    .group#messages
+      h2 Messages
+      .row
+        dl.col-1_1
+          dt When an actor is afflicted
+          dd.row
+            .col-1_4
+              | (Target Name)
+            .col-3_4
+              input#message1 type="text"
+      .row
+        dl.col-1_1
+          dt When an enemy is afflicted
+          dd.row
+            .col-1_4
+              | (Target Name)
+            .col-3_4
+              input#message2 type="text"
+      .row
+        dl.col-1_1
+          dt When it persists
+          dd.row
+            .col-1_4
+              | (Target Name)
+            .col-3_4
+              input#message3 type="text"
+      .row
+        dl.col-1_1
+          dt When it is removed
+          dd.row
+            .col-1_4
+              | (Target Name)
+            .col-3_4
+              input#message4 type="text"
+
+  .col-3_10
+    == partial :'partial/group-features'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

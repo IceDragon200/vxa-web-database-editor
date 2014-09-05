@@ -1,0 +1,91 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-graduation-cap
+    | Classes
+
+.editor#class-page
+  .col-1_5
+    .group#classes
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      .row
+        dl.col-1_2
+          dt Name
+          dd
+            input#name type="text" value=""
+        dl.col-1_2
+          dt EXP Curve
+          dd
+            dl.col-1_4
+              input#exp_params-0 type="number" value="0"
+            dl.col-1_4
+              input#exp_params-1 type="number" value="0"
+            dl.col-1_4
+              input#exp_params-2 type="number" value="0"
+            dl.col-1_4
+              input#exp_params-3 type="number" value="0"
+
+      //- This is not normally apart of RM
+      //-== partial :'partial/row-description'
+
+    .group#parameter_curve
+      h2 Parameter Curves
+      .row
+        dl.col-1_4#mhp-curve
+          dt MHP
+          dd
+            .parameter-curve
+        dl.col-1_4#mmp-curve
+          dt MMP
+          dd
+            .parameter-curve
+        dl.col-1_4#atk-curve
+          dt ATK
+          dd
+            .parameter-curve
+        dl.col-1_4#def-curve
+          dt DEF
+          dd
+            .parameter-curve
+
+      .row
+        dl.col-1_4#mat-curve
+          dt MAT
+          dd
+            .parameter-curve
+        dl.col-1_4#mdf-curve
+          dt MDF
+          dd
+            .parameter-curve
+        dl.col-1_4#agi-curve
+          dt AGI
+          dd
+            .parameter-curve
+        dl.col-1_4#luk-curve
+          dt LUK
+          dd
+            .parameter-curve
+
+    .group#learnings
+      h2 Skills
+      table.learnings
+        thead
+          tr
+            th.clean
+            th Level
+            th Skill
+            th Note
+        tbody
+          /-
+
+  .col-3_10
+    == partial :'partial/group-features'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

@@ -1,21 +1,36 @@
-
-@import "profoundgrid/sass/grid/_grid.scss";
-
-// //////////////////////
-// CONFIG
-// //////////////////////
-
-$total_width: 100%;
-$container_margin: 1%;
-$gutter_width: 2%;
-$max_width: 100%;
-$total_columns: 4;
+//$active_color: rgb(0, 153, 204); // ES Blue
+//$active_color: #DD4814; // Ubuntu Orange
+$active_color: #7AF720;
 
 body {
-  width: 90%;
+  width: 100%;
   margin: auto;
   color: #333;
-  font-family: "Source Sans Pro";
+  //font-family: "Source Sans Pro";
+  font-family: Arial sans;
+  font-size: 14px;
+  line-height: 1.2;
+  vertical-align: middle;
+  //background-color: #F2EEF5;
+}
+
+dd, dt, dl {
+  vertical-align: middle;
+}
+
+hr {
+  margin: 0;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  padding: 0;
+  border: none;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+span {
+  display: inline-block;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,28 +44,57 @@ h4 { font-size: 2.25em; }
 h5 { font-size: 2em; }
 h6 { font-size: 1.5em; }
 
-a, a:hover, a:visited, a:focus {
+a {
   color: #333;
+  font-weight: 300;
+  text-decoration: none;
+  transition: 0.25s color;
+  &:hover {
+    color: rgb(0, 153, 204);
+  }
+  &:focus, &:active {
+    color: rgb(71, 72, 66);
+  }
 }
 
-nav {
+nav.tabs {
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  width: 100%;
+
+  text-shadow: 0px -1px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0,0, 0.3);
+  font-size: 1.05em;
+
+  i {
+    size: 150%;
+  }
+
   ol {
     background-color: #333;
     color: #EEE;
     display: block;
 
-    a, a:hover, a:visited, a:focus {
+    a {
       color: #EEE;
+      margin: 0;
+      padding: 0;
     }
 
     li {
+      vertical-align: middle;
       display: inline-block;
-      padding: 8px;
-      padding-bottom: 12px;
-      transition: 0.02s background-color;
+      padding: 0.5em;
+      transition: 0.15s background-color;
 
-      &:hover {
-        background-color: rgba(0,0,0,0.02)
+      &:hover, &.active {
+        a { color: $active_color; }
+        background-color: rgba(0,0,0,0.2);
+      }
+      &:focus, &:active {
+        a { color: rgb(71, 72, 66); }
+        background-color: rgba(0,0,0,0.2);
       }
     }
   }
@@ -60,42 +104,55 @@ input, select, textarea {
   width: 100%;
 }
 
+input[type="checkbox"], input[type="radio"] {
+  width: initial;
+  display: inline-block;
+}
+
 select.items {
+  font-size: 10px;
   padding: 2px;
   padding-left: 4px;
   padding-right: 4px;
-  font-family: "Source Code Pro";
 }
 
 table {
-   border: 1px solid #EEE;
+   border: 1px solid rgba(0, 0, 0, 0.2);
    border-collapse: collapse;
    font-size: .875rem;
    /* padding: 8px; */
 }
 
 th {
-  border-bottom: 1px solid #333;
-  background-color: #eee;
-  color: #999;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #FFF;
   font-weight: 400;
 }
 
 th, tr, td {
   padding: 4px 8px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-table.features {
-  width: 100%;
+table {
+  &.features, &.learnings, &.effects {
+    width: 100%;
+  }
+}
+
+.disabled {
+  color: #777 !important;
 }
 
 .group {
   padding: 8px;
-  margin: 8px;
-  background-color: #EEE;
-  border-radius: 8px;
+  margin: 1%;
+  //background-color: #AEEEEE;
+  //border-radius: 8px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   h1 { font-size: 2em; }
   h2 { font-size: 1.75em; }
@@ -104,10 +161,8 @@ table.features {
   h5 { font-size: 1.125em; }
   h6 { font-size: 1.05em; }
 
-  h2 {
-    padding: 4px;
-    border-bottom: 2px solid #DDD;
-    margin-bottom: 2px;
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.25em;
   }
 }
 
@@ -117,8 +172,85 @@ table.features {
   }
 }
 
-@include generate_helper_classes();
+.note {
+  textarea {
+    font-size: 8px;
+  }
+}
 
-.row {
+.page-title, .page-tail {
+  display: block;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: #333;
+  border-bottom: 2px solid #222;
+
+  text-shadow: 0px -1px rgba(0, 0, 0, 0.7);
+  color: #999;
+}
+
+.page-title {
+  margin-top: 1em;
+  padding-top: 2.0em;
+}
+
+.editor, .content {
+  width: 98%;
+  margin: auto;
+}
+
+.big {
+  font-size: 2em;
+}
+
+.icon-button {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 48px;
+  width: 64px;
+  height: 64px;
   display: inline-block;
 }
+
+.character-graphic {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 96px;
+  height: 96px;
+}
+
+.face-graphic {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 96px;
+  height: 96px;
+}
+
+.parameter-curve {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 96px;
+  height: 96px;
+}
+
+.item-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 32px;
+  height: 32px;
+}
+
+.row {
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
+  vertical-align: middle;
+}
+
+.clean {
+  border: none;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@import "grid";
+

@@ -1,0 +1,43 @@
+.page-title
+  h1
+    i.fa.fa-fw.fa-wrench
+    | Weapons
+
+.editor#weapon-page
+  .col-1_5
+    .group#weapons
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      == partial :'partial/row-name__icon'
+      == partial :'partial/row-description'
+
+      .row
+        dl.col-1_2
+          dt Weapon Type
+          dd
+            input#wtype_id list="data-weapon_types"
+
+        dl.col-1_4
+          dt Price
+          dd
+            input#price type="number" value="0"
+
+      .row
+        dl.col-1_2
+          dt Animation
+          dd
+            input#animation_id list="data-animations"
+
+    == partial :'partial/group-parameter_changes'
+
+  .col-3_10
+    == partial :'partial/group-features'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

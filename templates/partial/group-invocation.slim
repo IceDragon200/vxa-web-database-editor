@@ -1,0 +1,35 @@
+.group#invocation
+  h2 Invocation
+  .row
+    dl.col-1_4
+      dt Speed
+      dd
+        input#speed type="number" value="0"
+    dl.col-1_4
+      dt Success %
+      dd
+        input#success_rate type="number" value="100"
+    dl.col-1_4
+      dt Repeats
+      dd
+        input#repeats type="number" value="1"
+    dl.col-1_4
+      dt TP Gain
+      dd
+        input#tp_gain type="number" value="0"
+
+  .row
+    dl.col-1_2
+      dt Hit Type
+      dd
+        select#hit_type
+          option value="0"
+            | Certain Hit
+          option value="1"
+            | Physical Hit
+          option value="2"
+            | Magical Hit
+    dl.col-1_2
+      dt Animation
+      dd
+        input#animation_id list="data-animations"

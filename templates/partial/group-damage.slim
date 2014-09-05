@@ -1,0 +1,44 @@
+.group#damage
+  h2 Damage
+  .row
+    dl.col-1_2
+      dt Type
+      dd
+        select#damage-type
+          option value="0"
+            | None
+          option value="1"
+            | HP Damage
+          option value="2"
+            | MP Damage
+          option value="3"
+            | HP Recover
+          option value="4"
+            | MP Recover
+          option value="5"
+            | HP Drain
+          option value="6"
+            | MP Drain
+
+    dl.col-1_2
+      dt Element
+      dd
+        input#damage-element list="data-elements"
+  .row
+    dl.col-1_1
+      dt Formula
+      dd
+        input#damage-formula type="text" value="0"
+  .row
+    dl.col-1_3
+      dt Variance
+      dd
+        input#damage-variance type="number"
+
+    dl.col-1_3
+      dt Critical
+      dd
+        input#damage-critical type="checkbox"
+
+    dl.col-1_3
+      input type="button" value="Quick!"
