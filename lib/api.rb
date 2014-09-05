@@ -5,9 +5,11 @@ module Api
 
     helpers do
       def jarray(obj)
-        obj.map do |obj|
+        array = obj.map do |obj|
           obj ? obj.to_h : obj
-        end.to_json
+        end
+
+        array.to_json
       end
     end
 
@@ -21,22 +23,24 @@ module Api
       end
 
       get "/api/#{route_name}" do
-        DBE.send(collection_name).map do |obj|
+        data = DBE.send(collection_name).map do |obj|
           obj ? obj.to_h : obj
-        end.to_json
+        end
+
+        data.to_json
       end
 
       get "/api/#{route_name}/:id" do
-        obj = DBE.send(collection_name)[params[:id]]
+        obj = DBE.send(collection_name)[params[:id].to_i]
         obj.to_json
       end
 
       post "/api/#{route_name}/:id" do
-        obj = DBE.send(collection_name)[params[:id]]
+        obj = DBE.send(collection_name)[params[:id].to_i]
         if obj
-
+          obj
         end
-        ""
+        obj ? obj.to_json : ""
       end
 
       delete "/api/#{route_name}/:id" do

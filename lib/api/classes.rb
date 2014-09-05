@@ -1,7 +1,5 @@
 module Api
   class Classes < Base
-
-    resource :classe
-
+    resource :class
   end
 end

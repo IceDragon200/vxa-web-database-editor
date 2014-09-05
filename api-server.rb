@@ -2,13 +2,23 @@
 #
 # DatabaseEditor/server.rb
 #   by IceDragon
-require 'sinatra/base'
-require 'active_support/inflector'
+require "active_support/inflector"
+require "active_support/core_ext"
 
-require 'rgss3tk'
-require 'rgss3tk/core'
-require 'rgss3tk/rpg'
-require 'rgss3tk/rpg-json'
+require "sinatra/base"
+require "sinatra/partial"
+
+require "slim"
+require "sass"
+require "coffee_script"
+require "tilt"
+
+require "rgss3tk"
+require "rgss3tk/core"
+require "rgss3tk/rpg"
+require "rgss3tk/rpg-json"
+
+require "yaml"
 
 module DBE
   class << self
@@ -36,16 +46,16 @@ end
 
 # https://gist.github.com/jharjono/859008
 class ScssHandler < Sinatra::Base
-  set :views, File.dirname(__FILE__) + '/templates/scss'
+  set :views, File.dirname(__FILE__) + "/templates/scss"
 
-  get '/css/*.css' do
+  get "/css/*.css" do
     filename = params[:splat].first
     scss filename.to_sym
   end
 end
 
 class CoffeeHandler < Sinatra::Base
-  set :views, File.dirname(__FILE__) + '/templates/coffee'
+  set :views, File.dirname(__FILE__) + "/templates/coffee"
 
   get "/js/*.js" do
     filename = params[:splat].first
@@ -54,9 +64,13 @@ class CoffeeHandler < Sinatra::Base
 end
 # /https://gist.github.com/jharjono/859008
 
-require_relative 'lib/api'
+require_relative "lib/api"
 
 class DatabaseEditor < Sinatra::Base
+  register Sinatra::Partial
+
+  set :partial_template_engine, :slim
+
   use CoffeeHandler
   use ScssHandler
   use Api::Actors
@@ -74,8 +88,66 @@ class DatabaseEditor < Sinatra::Base
   use Api::System
   use Api::Terms
 
-  set :public_dir, File.dirname(__FILE__) + '/public'
-  set :views, File.dirname(__FILE__) + '/templates'
-end
+  set :public_dir, File.dirname(__FILE__) + "/public"
+  set :views, File.dirname(__FILE__) + "/templates"
 
-DatabaseEditor.run! port: 4567
+  get "/" do
+    slim :index
+  end
+
+  get "/actors" do
+    slim :actors
+  end
+
+  get "/classes" do
+    slim :classes
+  end
+
+  get "/skills" do
+    slim :skills
+  end
+
+  get "/items" do
+    slim :items
+  end
+
+  get "/weapons" do
+    slim :weapons
+  end
+
+  get "/armors" do
+    slim :armors
+  end
+
+  get "/enemies" do
+    slim :enemies
+  end
+
+  get "/troops" do
+    slim :troops
+  end
+
+  get "/states" do
+    slim :states
+  end
+
+  get "/animations" do
+    slim :animations
+  end
+
+  get "/tilesets" do
+    slim :tilesets
+  end
+
+  get "/commonevents" do
+    slim :commonevents
+  end
+
+  get "/system" do
+    slim :system
+  end
+
+  get "/terms" do
+    slim :terms
+  end
+end
