@@ -31,15 +31,20 @@ class DatabaseUpdate
     $("#troops #list").change (e) ->
       DbRenderer.render_current_troop()
 
-  setup_animation_events: ->
-    $("#animations #list").change (e) ->
-      DbRenderer.render_current_animation()
-
   setup_state_events: ->
     $("#states #list").change (e) ->
       DbRenderer.render_current_state()
 
+  setup_animation_events: ->
+    $("#animations #list").change (e) ->
+      DbRenderer.render_current_animation()
+
+  setup_terms_events: ->
+    #
+
   setup_events: ->
-    @["setup_#{DbRenderer.page_symbol()}_events"]()
+    funcname = "setup_#{DbRenderer.page_symbol()}_events"
+    if func = @[funcname]
+      func()
 
 window.DbUpdate = new DatabaseUpdate

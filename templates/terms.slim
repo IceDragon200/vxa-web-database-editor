@@ -1,0 +1,247 @@
+== partial :'partial/page_title', locals: { title: "Terms", tab: "terms" }
+
+.editor#terms-page
+  .col-1_3
+    .row
+      .col-1_2
+        .group#elements
+          h2 Elements
+          == partial :'partial/list-items', locals: { size: 14 }
+      .col-1_2
+        .group#wtypes
+          h2 Weapon Types
+          == partial :'partial/list-items', locals: { size: 14 }
+    .row
+      .col-1_2
+        .group#stypes
+          h2 Skill Types
+          == partial :'partial/list-items', locals: { size: 14 }
+      .col-1_2
+        .group#atypes
+          h2 Armor Types
+          == partial :'partial/list-items', locals: { size: 14 }
+
+  .col-1_3
+    .group#basic
+      h2 Basic Status
+      .row
+        dl.col-1_2
+          dt Level
+          dd
+            input#basic-0 type="text"
+        dl.col-1_2
+          dt Level (Short)
+          dd
+            input#basic-1 type="text"
+      .row
+        dl.col-1_2
+          dt HP
+          dd
+            input#basic-2 type="text"
+        dl.col-1_2
+          dt HP (Short)
+          dd
+            input#basic-3 type="text"
+      .row
+        dl.col-1_2
+          dt MP
+          dd
+            input#basic-4 type="text"
+        dl.col-1_2
+          dt MP (Short)
+          dd
+            input#basic-5 type="text"
+      .row
+        dl.col-1_2
+          dt TP
+          dd
+            input#basic-6 type="text"
+        dl.col-1_2
+          dt TP (Short)
+          dd
+            input#basic-7 type="text"
+
+    .group#params
+      h2 Parameters
+      .row
+        dl.col-1_2
+          dt MHP
+          dd
+            input#params-0 type="text"
+        dl.col-1_2
+          dt MMP
+          dd
+            input#params-1 type="text"
+
+      .row
+        dl.col-1_2
+          dt ATK
+          dd
+            input#params-2 type="text"
+        dl.col-1_2
+          dt DEF
+          dd
+            input#params-3 type="text"
+
+      .row
+        dl.col-1_2
+          dt MAT
+          dd
+            input#params-4 type="text"
+        dl.col-1_2
+          dt MDF
+          dd
+            input#params-5 type="text"
+
+      .row
+        dl.col-1_2
+          dt AGI
+          dd
+            input#params-6 type="text"
+        dl.col-1_2
+          dt LUK
+          dd
+            input#params-7 type="text"
+
+    .group#etypes
+      h2 Equip Types
+      .row
+        dl.col-1_2
+          dt Weapon
+          dd
+            input#etypes-0 type="text"
+        dl.col-1_2
+          dt Shield
+          dd
+            input#etypes-1 type="text"
+      .row
+        dl.col-1_2
+          dt Body
+          dd
+            input#etypes-2 type="text"
+        dl.col-1_2
+          dt Head
+          dd
+            input#etypes-3 type="text"
+      .row
+        dl.col-1_2
+          dt Accessory
+          dd
+            input#etypes-4 type="text"
+        dl.col-1_2
+          //-
+
+  .col-1_3
+    .group#commands
+      h2 Commands
+      .row
+        dl.col-1_2
+          dt Fight
+          dd
+            input#commands-0 type="text"
+        dl.col-1_2
+          dt Escape
+          dd
+            input#commands-1 type="text"
+      .row
+        dl.col-1_2
+          dt Attack
+          dd
+            input#commands-2 type="text"
+        dl.col-1_2
+          dt Guard
+          dd
+            input#commands-3 type="text"
+      .row
+        dl.col-1_2
+          dt Item
+          dd
+            input#commands-4 type="text"
+        dl.col-1_2
+          dt Skill
+          dd
+            input#commands-5 type="text"
+      .row
+        dl.col-1_2
+          dt Equip
+          dd
+            input#commands-6 type="text"
+        dl.col-1_2
+          dt Status
+          dd
+            input#commands-7 type="text"
+      .row
+        dl.col-1_2
+          dt Formation
+          dd
+            input#commands-8 type="text"
+        dl.col-1_2
+          dt Save
+          dd
+            input#commands-9 type="text"
+      .row
+        dl.col-1_2
+          dt Game End
+          dd
+            input#commands-10 type="text"
+        dl.col-1_2
+          /-
+
+      hr
+      .row
+        dl.col-1_2
+          dt Weapon
+          dd
+            input#commands-12 type="text"
+        dl.col-1_2
+          dt Armor
+          dd
+            input#commands-13 type="text"
+      .row
+        dl.col-1_2
+          dt Key Item
+          dd
+            input#commands-14 type="text"
+        dl.col-1_2
+          dt Equip
+          dd
+            input#commands-15 type="text"
+      .row
+        dl.col-1_2
+          dt Optimize
+          dd
+            input#commands-16 type="text"
+        dl.col-1_2
+          dt Clear
+          dd
+            input#commands-17 type="text"
+      hr
+      .row
+        dl.col-1_2
+          dt New Game
+          dd
+            input#commands-18 type="text"
+        dl.col-1_2
+          dt Continue
+          dd
+            input#commands-19 type="text"
+      .row
+        dl.col-1_2
+          dt Shutdown
+          dd
+            input#commands-20 type="text"
+        dl.col-1_2
+          dt To Title
+          dd
+            input#commands-21 type="text"
+      .row
+        dl.col-1_2
+          dt Cancel
+          dd
+            input#commands-22 type="text"
+        dl.col-1_2
+          /-
+
+.page-tail
+  .content
+    input type="submit"

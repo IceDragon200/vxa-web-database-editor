@@ -1,7 +1,4 @@
-.page-title
-  h1
-    i.fa.fa-fw.fa-shield
-    | Armors
+== partial :'partial/page_title', locals: { title: "Armors", tab: "armor" }
 
 .editor#armor-page
   .col-1_5
@@ -30,7 +27,11 @@
         dl.col-1_2
           dt Equip Type
           dd
-            input#etype_id list="data-equip_types"
+            select#etype_id
+              option value="1" Shield
+              option value="2" Head
+              option value="3" Body
+              option value="4" Accessory
 
     == partial :'partial/group-parameter_changes'
 

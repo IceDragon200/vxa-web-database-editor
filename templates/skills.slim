@@ -1,7 +1,4 @@
-.page-title
-  h1
-    i.fa.fa-fw.fa-bolt
-    | Skills
+== partial :'partial/page_title', locals: { title: "Skills", tab: "skill" }
 
 .editor#skill-page
   .col-1_5
@@ -64,7 +61,7 @@
         .col-1_3
           input type="button" value="'uses *!'"
 
-    .group#using_message
+    .group#required_weapon
       h2 Required Weapon
       .row
         dl.col-1_2

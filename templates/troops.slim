@@ -1,0 +1,64 @@
+== partial :'partial/page_title', locals: { title: "Troops", tab: "troop" }
+
+.editor#troop-page
+  .col-1_5
+    .group#troops
+      == partial :'partial/list-items'
+
+  .col-4_5
+    .group#general
+      h2 General Settings
+
+      .row
+        dl.col-1_4
+          dt Name
+          dd
+            input#name type="text" value="Unnamed"
+        dl.col-1_4
+          dt.invisible -
+          dd
+            input type="button" value="Autoname"
+        dl.col-1_4
+          dt.invisible -
+          dd
+            input type="button" value="Change Battleback ..."
+        dl.col-1_4
+          dt.invisible -
+          dd
+            input type="button" value="Battle Test ..."
+
+      .row
+        dl.col-4_7
+          .troop_display
+        dl.col-1_7
+          .row
+            input type="button" value="< Add"
+          .row
+            input type="button" value="Remove > "
+          .row
+            input type="button" value="Clear"
+          .row
+            input type="button" value="Arrange"
+        dl.col-2_7
+          select size="10" list="data-enemies"
+
+    .group#battle_event
+      h2 Battle Event
+
+      .row
+        dl.col-1_7
+          .row
+            input type="button" value="New Event Page"
+          .row
+            input type="button" value="Copy Event Page"
+          .row
+            input type="button" value="Paste Event Page"
+          .row
+            input type="button" value="Delete Event Page"
+          .row
+            input type="button" value="Clear Event Page"
+        dl.col-6_7
+
+.page-tail
+  .content
+    input type="submit"

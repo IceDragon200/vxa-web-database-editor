@@ -1,15 +1,18 @@
 //$active_color: rgb(0, 153, 204); // ES Blue
 //$active_color: #DD4814; // Ubuntu Orange
 $active_color: #7AF720;
+$animation_time: 0.2s;
 
+html { min-height: 100%; }
 body {
   width: 100%;
+  min-height: 100%;
   margin: auto;
   color: #333;
   //font-family: "Source Sans Pro";
   font-family: Arial sans;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.5;
   vertical-align: middle;
   //background-color: #F2EEF5;
 }
@@ -69,6 +72,9 @@ nav.tabs {
 
   i {
     size: 150%;
+    margin-left: 8px;
+    margin-right: 2px;
+    transition: $animation_time margin;
   }
 
   ol {
@@ -76,31 +82,40 @@ nav.tabs {
     color: #EEE;
     display: block;
 
-    a {
-      color: #EEE;
-      margin: 0;
-      padding: 0;
-    }
-
     li {
       vertical-align: middle;
       display: inline-block;
       padding: 0.5em;
-      transition: 0.15s background-color;
+      transition: $animation_time background-color;
+    }
+
+    a {
+      color: #EEE;
+      margin: 0;
+      padding: 0;
+      transition: $animation_time color;
 
       &:hover, &.active {
-        a { color: $active_color; }
-        background-color: rgba(0,0,0,0.2);
+        color: $active_color;
+        li { background-color: rgba(0,0,0,0.2); }
+        i {
+          margin-left: 2px;
+          margin-right: 8px;
+        }
       }
       &:focus, &:active {
-        a { color: rgb(71, 72, 66); }
-        background-color: rgba(0,0,0,0.2);
+        color: rgb(71, 72, 66);
+        li { background-color: rgba(0,0,0,0.2); }
       }
     }
   }
 }
 
 input, select, textarea {
+  font-family: monospace;
+  font-size: 14px;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
   width: 100%;
 }
 
@@ -137,7 +152,7 @@ th, tr, td {
 }
 
 table {
-  &.features, &.learnings, &.effects {
+  &.features, &.learnings, &.effects, &.actions, &.timing {
     width: 100%;
   }
 }
@@ -197,6 +212,7 @@ table {
 
 .editor, .content {
   width: 98%;
+  min-height: 100%;
   margin: auto;
 }
 
@@ -237,6 +253,16 @@ table {
   height: 32px;
 }
 
+.troop_display {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #CCC;
+}
+
+.invisible {
+  opacity: 0;
+}
+
 .row {
   margin-top: 0.1em;
   margin-bottom: 0.3em;
@@ -250,6 +276,11 @@ table {
 
 .hidden {
   display: none;
+}
+
+.animation_frame_select {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 @import "grid";

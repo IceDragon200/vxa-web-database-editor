@@ -1,4 +1,6 @@
 #
+/.sass-cache
 /templates/scss/profoundgrid
 /public/components
 /Data
+/tmp

@@ -1,0 +1,105 @@
+== partial :'partial/page_title', locals: { title: "Enemies", tab: "enemy" }
+
+.editor#enemy-page
+  .col-1_5
+    .group#enemies
+      == partial :'partial/list-items'
+
+  .col-1_2
+    .group#general
+      h2 General Settings
+
+      .row
+        dl.col-1_2
+          dt Name
+          dd
+            input#name type="text" value="Unnamed"
+
+        dl.col-1_2
+          dl.col-1_2
+            dt MHP
+            dd
+              input#params-0 type="number" value="0"
+          dl.col-1_2
+            dt MMP
+            dd
+              input#params-1 type="number" value="0"
+
+      .row
+        dl.col-1_2
+        dl.col-1_2
+          dl.col-1_2
+            dt ATK
+            dd
+              input#params-2 type="number" value="0"
+          dl.col-1_2
+            dt DEF
+            dd
+              input#params-3 type="number" value="0"
+
+      .row
+        dl.col-1_2
+        dl.col-1_2
+          dl.col-1_2
+            dt MAT
+            dd
+              input#params-4 type="number" value="0"
+          dl.col-1_2
+            dt MDF
+            dd
+              input#params-5 type="number" value="0"
+
+      .row
+        dl.col-1_2
+        dl.col-1_2
+          dl.col-1_2
+            dt AGI
+            dd
+              input#params-6 type="number" value="0"
+          dl.col-1_2
+            dt LUK
+            dd
+              input#params-7 type="number" value="0"
+
+    .group#rewards
+      h2 Rewards
+      dl.col-1_4
+        h3
+          | EXP & Gold
+        .row
+          dt EXP
+          dd
+            input#exp type="number" value="0"
+        .row
+          dt Gold
+          dd
+            input#gold type="number" value="0"
+
+      dl.col-3_4
+        h3 Drops
+        .row
+          input#drops-1 list="data-all_items"
+        .row
+          input#drops-2 list="data-all_items"
+        .row
+          input#drops-3 list="data-all_items"
+
+    .group#actions
+      h2 Action Pattern
+      table.actions
+        thead
+          tr
+            th.clean
+            th Skill
+            th Condition
+            th Rating
+        tbody
+         /-
+
+  .col-3_10
+    == partial :'partial/group-features'
+    == partial :'partial/group-notebox'
+
+.page-tail
+  .content
+    input type="submit"

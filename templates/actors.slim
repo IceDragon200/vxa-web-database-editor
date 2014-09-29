@@ -1,7 +1,4 @@
-.page-title
-  h1
-    i.fa.fa-fw.fa-child
-    | Actors
+== partial :'partial/page_title', locals: { title: "Actors", tab: "actor" }
 
 .editor#actor-page
   .col-1_5
@@ -45,19 +42,19 @@
           .col-1_1
             .face-graphic
               //-
-          .col-1_2
-            input#face_name type="text" value=""
-          .col-1_2
-            input#face_index type="number" value="0"
+          /-.col-1_2
+          /-  input#face_name type="text" value=""
+          /-.col-1_2
+          /-  input#face_index type="number" value="0"
 
         .col-1_2
           .col-1_1
             .character-graphic
               //-
-          .col-1_2
-            input#character_name type="text" value=""
-          .col-1_2
-            input#character_index type="number" value="0"
+          /-.col-1_2
+          /-  input#character_name type="text" value=""
+          /-.col-1_2
+          /-  input#character_index type="number" value="0"
 
     .group#equipment
       h2 Starting Equipment

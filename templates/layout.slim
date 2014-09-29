@@ -13,64 +13,21 @@ html
   body
     nav.tabs
       ol
-        li#tab-home
-          a href="/"
-            i.fa.fa-fw.fa-database
-        li#tab-actor
-          a href="/actors"
-            i.fa.fa-fw.fa-child
-            | Actors
-        li#tab-class
-          a href="/classes"
-            i.fa.fa-fw.fa-graduation-cap
-            | Classes
-        li#tab-skill
-          a href="/skills"
-            i.fa.fa-fw.fa-bolt
-            | Skills
-        li#tab-item
-          a href="/items"
-            i.fa.fa-fw.fa-soccer-ball-o
-            | Items
-        li#tab-weapon
-          a href="/weapons"
-            i.fa.fa-fw.fa-wrench
-            | Weapons
-        li#tab-armor
-          a href="/armors"
-            i.fa.fa-fw.fa-shield
-            | Armors
-        li#tab-enemy
-          a.disabled href="/enemies"
-            i.fa.fa-fw.fa-paw
-            | Enemies
-        li#tab-troop
-          a.disabled href="/troops"
-            i.fa.fa-fw.fa-group
-            | Troops
-        li#tab-state
-          a href="/states"
-            i.fa.fa-fw.fa-cloud
-            | States
-        li#tab-animation
-          a.disabled href="/animations"
-            i.fa.fa-fw.fa-play
-            | Animations
-        li#tab-tileset
-          a.disabled href="/tilesets"
-            i.fa.fa-fw.fa-cube
-            | Tilesets
-        li#tab-common_event
-          a.disabled href="/common_events"
-            i.fa.fa-fw.fa-list
-            | Common Events
-        li#tab-system
-          a.disabled href="/system"
-            i.fa.fa-fw.fa-cog
+        a#tab-home href="/"
+          li
+            == tab_icon("site")
+        - %w[actor class skill item weapon armor enemy troop state animation tileset common_event].each do |n|
+          a id="tab-#{n}" href="/#{n.pluralize}"
+            li
+              == tab_icon(n)
+              = n.titlecase
+        a.disabled#tab-system href="/system"
+          li
+            == tab_icon("system")
             | System
-        li#tab-terms
-          a.disabled href="/terms"
-            i.fa.fa-fw.fa-book
+        a#tab-terms href="/terms"
+          li
+            == tab_icon("terms")
             | Terms
 
     == yield

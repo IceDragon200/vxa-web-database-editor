@@ -150,4 +150,9 @@ class DatabaseEditor < Sinatra::Base
   get "/terms" do
     slim :terms
   end
+
+  def tab_icon(name)
+    @tab_icon ||= YAML.load_file("config/icons.yml")
+    slim "i.fa.fa-fw.#{@tab_icon[name]}"
+  end
 end

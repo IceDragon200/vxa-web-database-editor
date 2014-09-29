@@ -1,0 +1,16 @@
+---
+site: fa-database
+actor: fa-child
+class: fa-graduation-cap
+skill: fa-bolt
+item: fa-soccer-ball-o
+weapon: fa-wrench
+armor: fa-shield
+enemy: fa-paw
+troop: fa-group
+state: fa-cloud
+animation: fa-play
+tileset: fa-cube
+common_event: fa-list
+system: fa-cog
+terms: fa-book

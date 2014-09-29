@@ -1,0 +1,74 @@
+== partial :'partial/page_title', locals: { title: "Animations", tab: "animation" }
+
+.editor#animation-page
+  .col-1_5
+    .group#animations
+      == partial :'partial/list-items'
+
+  .col-4_5
+    .row
+      .col-1_4
+        .group#general
+          h2 General Settings
+          .row
+            dl.col-1_1
+              dt Name
+              dd
+                input#name type="text" value="Unnamed"
+          .row
+            dl.col-1_1
+              dt Graphic
+              dd
+                input#animation1_name
+                input#animation2_name
+          .row
+            dl.col-1_2
+              dt Position
+              dd
+                select#position
+                  option value="0" Head
+                  option value="1" Center
+                  option value="2" Feet
+                  option value="3" Screen
+            dl.col-1_2
+              dt Max #
+              dd
+                input#frame_max type="number" value="0"
+      .col-3_4
+        .group#timing
+          h2 SE and Flash Timing
+          table.timing
+            thead
+              tr
+                th.clean
+                th No.
+                th SE
+                th Flash
+            tbody
+              /-
+    .row
+      .col-1_6
+        input type="button" value="Back"
+        select#frames size="14"
+        input type="button" value="Next"
+
+      .col-3_6
+        /-
+      .col-2_6
+        input type="button" value="Change Target ..."
+        input.invisible type="button" value="-"
+        input type="button" value="Paste Last"
+        input type="button" value="Copy Frames ..."
+        input type="button" value="Clear Frames ..."
+        input type="button" value="Tweening ..."
+        input type="button" value="Cell Batch ..."
+        input type="button" value="Entire Slide ..."
+        input.invisible type="button" value="-"
+        input type="button" value="Play"
+
+    .row
+      .col-1_1
+        .animation_frame_select
+.page-tail
+  .content
+    input type="submit"

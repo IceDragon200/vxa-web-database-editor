@@ -75,12 +75,18 @@ RPG.Color = class Color
     @blue = blue
     @alpha = alpha
 
+  to_s: ->
+    "#{@red}, #{@green}, #{@blue}, #{@alpha}"
+
 RPG.Tone = class Tone
   constructor: (red = 255, green = 255, blue = 255, gray = 255) ->
     @red = red
     @green = green
     @blue = blue
     @gray = gray
+
+  to_s: ->
+    "#{@red}, #{@green}, #{@blue}, #{@gray}"
 
 RPG.AudioFile = class AudioFile
   constructor: (name = '', volume = 100, pitch = 100) ->
