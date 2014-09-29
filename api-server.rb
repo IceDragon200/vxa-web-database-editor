@@ -139,8 +139,8 @@ class DatabaseEditor < Sinatra::Base
     slim :tilesets
   end
 
-  get "/commonevents" do
-    slim :commonevents
+  get "/common_events" do
+    slim :common_events
   end
 
   get "/system" do
