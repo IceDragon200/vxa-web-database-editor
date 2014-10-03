@@ -1,9 +1,10 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
-gem "unicorn"
-gem "sinatra"
-gem "sinatra-partial"
-gem "slim"
-gem "tilt"
-gem "coffee-script"
-gem "sass"
+gem 'activesupport',   '~> 4.1'
+gem 'coffee-script',   '~> 2.3'
+gem 'sass',            '~> 3.4'
+gem 'sinatra',         '~> 1.0'
+gem 'sinatra-partial', '~> 0.4'
+gem 'slim',            '~> 2.0'
+gem 'tilt',            '~> 2.0'
+gem 'unicorn',         '~> 4.8'
