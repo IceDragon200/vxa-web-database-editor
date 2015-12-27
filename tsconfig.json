@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es5",
+        "noImplicitAny": false,
+        "outDir": "public/js",
+        "rootDir": "src/typescripts",
+        "sourceMap": false
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

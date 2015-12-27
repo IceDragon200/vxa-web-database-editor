@@ -2,23 +2,23 @@
 #
 # DatabaseEditor/server.rb
 #   by IceDragon
-require "active_support/inflector"
-require "active_support/core_ext"
+require 'active_support/inflector'
+require 'active_support/core_ext/string'
 
-require "sinatra/base"
-require "sinatra/partial"
+require 'sinatra/base'
+require 'sinatra/partial'
 
-require "slim"
-require "sass"
-require "coffee_script"
-require "tilt"
+require 'slim'
+require 'sass'
+require 'coffee_script'
+require 'tilt'
 
-require "rgss3tk"
-require "rgss3tk/core"
-require "rgss3tk/rpg"
-require "rgss3tk/rpg-json"
+require 'rgss_tk/core'
+require 'rgss_tk/core_ext'
+require 'rgss_tk/rgss3/rpg'
+require 'rgss_tk/rgss3/rpg-json'
 
-require "yaml"
+require 'yaml'
 
 module DBE
   class << self
@@ -36,7 +36,7 @@ module DBE
   end
 
   def self.system
-    @data[:system] ||= load_data("Data/System.rvdata2")
+    @data[:system] ||= load_data('Data/System.rvdata2')
   end
 
   def self.terms
@@ -46,32 +46,21 @@ end
 
 # https://gist.github.com/jharjono/859008
 class ScssHandler < Sinatra::Base
-  set :views, File.dirname(__FILE__) + "/templates/scss"
+  set :views, File.dirname(__FILE__) + '/templates/scss'
 
-  get "/css/*.css" do
+  get '/css/*.css' do
     filename = params[:splat].first
     scss filename.to_sym
   end
 end
 
-class CoffeeHandler < Sinatra::Base
-  set :views, File.dirname(__FILE__) + "/templates/coffee"
-
-  get "/js/*.js" do
-    filename = params[:splat].first
-    coffee filename.to_sym
-  end
-end
-# /https://gist.github.com/jharjono/859008
-
-require_relative "lib/api"
+require_relative 'lib/api'
 
 class DatabaseEditor < Sinatra::Base
   register Sinatra::Partial
 
   set :partial_template_engine, :slim
 
-  use CoffeeHandler
   use ScssHandler
   use Api::Actors
   use Api::Classes
@@ -88,71 +77,71 @@ class DatabaseEditor < Sinatra::Base
   use Api::System
   use Api::Terms
 
-  set :public_dir, File.dirname(__FILE__) + "/public"
-  set :views, File.dirname(__FILE__) + "/templates"
+  set public_dir: File.join(File.dirname(__FILE__), 'public')
+  set views: File.join(File.dirname(__FILE__), 'templates')
 
-  get "/" do
+  get '/' do
     slim :index
   end
 
-  get "/actors" do
+  get '/actors' do
     slim :actors
   end
 
-  get "/classes" do
+  get '/classes' do
     slim :classes
   end
 
-  get "/skills" do
+  get '/skills' do
     slim :skills
   end
 
-  get "/items" do
+  get '/items' do
     slim :items
   end
 
-  get "/weapons" do
+  get '/weapons' do
     slim :weapons
   end
 
-  get "/armors" do
+  get '/armors' do
     slim :armors
   end
 
-  get "/enemies" do
+  get '/enemies' do
     slim :enemies
   end
 
-  get "/troops" do
+  get '/troops' do
     slim :troops
   end
 
-  get "/states" do
+  get '/states' do
     slim :states
   end
 
-  get "/animations" do
+  get '/animations' do
     slim :animations
   end
 
-  get "/tilesets" do
+  get '/tilesets' do
     slim :tilesets
   end
 
-  get "/common_events" do
+  get '/common_events' do
     slim :common_events
   end
 
-  get "/system" do
+  get '/system' do
     slim :system
   end
 
-  get "/terms" do
+  get '/terms' do
     slim :terms
   end
 
   def tab_icon(name)
-    @tab_icon ||= YAML.load_file("config/icons.yml")
+    @tab_icon ||= YAML.load_file(File.join(__dir__, 'config/icons.yml'))
     slim "i.fa.fa-fw.#{@tab_icon[name]}"
   end
 end

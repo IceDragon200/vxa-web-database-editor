@@ -11,6 +11,6 @@ troop: fa-group
 state: fa-cloud
 animation: fa-play
 tileset: fa-cube
-common_event: fa-list
+common_events: fa-list
 system: fa-cog
 terms: fa-book

@@ -1,7 +1,11 @@
-require "json"
+require 'yajl'
+require 'sinatra'
+require 'sinatra/json'
 
 module Api
   class Base < Sinatra::Base
+    helpers Sinatra::JSON
+    set :json_encoder, Yajl::Encoder
 
     helpers do
       def jarray(obj)
@@ -9,7 +13,7 @@ module Api
           obj ? obj.to_h : obj
         end
 
-        array.to_json
+        json array
       end
     end
 
@@ -27,20 +31,17 @@ module Api
           obj ? obj.to_h : obj
         end
 
-        data.to_json
+        json data
       end
 
       get "/api/#{route_name}/:id" do
         obj = DBE.send(collection_name)[params[:id].to_i]
-        obj.to_json
+        json obj
       end
 
       post "/api/#{route_name}/:id" do
         obj = DBE.send(collection_name)[params[:id].to_i]
-        if obj
-          obj
-        end
-        obj ? obj.to_json : ""
+        obj ? json(obj) : ''
       end
 
       delete "/api/#{route_name}/:id" do

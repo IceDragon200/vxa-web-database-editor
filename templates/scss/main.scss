@@ -10,7 +10,7 @@ body {
   margin: auto;
   color: #333;
   //font-family: "Source Sans Pro";
-  font-family: Arial sans;
+  font-family: "Inconsolata", Arial, sans;
   font-size: 14px;
   line-height: 1.5;
   vertical-align: middle;
@@ -38,6 +38,7 @@ span {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
+  font-family: "Lato", sans-serif;
 }
 
 h1 { font-size: 3em; }
