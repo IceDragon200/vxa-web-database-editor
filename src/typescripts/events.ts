@@ -1,3 +1,5 @@
+import DbRenderer from "renderer";
+
 class DatabaseUpdate {
 	public setup_actor_events() {
 		return $("#actors #list").change((e) => DbRenderer.render_current_actor());
@@ -52,4 +54,4 @@ class DatabaseUpdate {
 	}
 }
 
-window.DbUpdate = new DatabaseUpdate;
+export default new DatabaseUpdate;

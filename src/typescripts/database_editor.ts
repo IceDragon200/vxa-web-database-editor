@@ -1,4 +1,6 @@
 class BaseEditor {
+	public data;
+
 	constructor() {
 		this.data = null;
 	}
@@ -10,29 +12,34 @@ class BaseEditor {
 	public json_post(route, data, cb) {
 		return $.ajax(route, {
 			type: "POST",
-			data: JSON.stringify(data),
+			data: data,
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: (result) => cb(result)
 		});
 	}
 
-	public post_data(wait, cb) {
+	public post_data(wait: boolean, cb?) {
 		return $.ajax(this.route(), {
-			type: "POST"
+			type: "POST",
+			dataType: "json",
 		}).done((data) => {});
 	}
 
-	public request_data(wait, cb) {
+	public request_data(wait: boolean, cb?) {
 		return $.ajax(this.route(), {
 			type: "GET",
-			async: !wait
-		}).success((data) => cb(data));
+			async: !wait,
+			dataType: "json",
+			success: function(data) {
+				if (cb) cb(data);
+			}
+		});
 	}
 
-	public update_data(wait, cb) {
+	public update_data(wait: boolean = false, cb?) {
 		return this.post_data(wait, (data) => {
-			this.data = JSON.parse(data);
+			this.data = data;
 			console.log("Updated " + (this.route()));
 			if (cb) {
 				return cb();
@@ -40,10 +47,10 @@ class BaseEditor {
 		});
 	}
 
-	public refresh_data(wait, cb) {
+	public refresh_data(wait: boolean, cb?) {
 		this.data = null;
 		return this.request_data(wait, (data) => {
-			this.data = JSON.parse(data);
+			this.data = data;
 			console.log("Refreshed " + (this.route()));
 			if (cb) {
 				return cb();
@@ -168,12 +175,45 @@ class WeaponsEditor extends BaseEditor {
 }
 
 class DatabaseEditor {
+	public animations = new AnimationsEditor();
+	public actors = new ActorsEditor();
+	public armors = new ArmorsEditor();
+	public classes = new ClassesEditor();
+	public common_events = new CommonEventsEditor();
+	public enemies = new EnemiesEditor();
+	public items = new ItemsEditor();
+	public skills = new SkillsEditor();
+	public states = new StatesEditor();
+	public system = new SystemEditor();
+	public terms = new TermsEditor();
+	public tilesets = new TilesetsEditor();
+	public troops = new TroopsEditor();
+	public weapons = new WeaponsEditor();
+	public editors: Array<BaseEditor>;
+
 	constructor() {
-		this.editors = [this.animations = new AnimationsEditor, this.actors = new ActorsEditor, this.armors = new ArmorsEditor, this.classes = new ClassesEditor, this.common_events = new CommonEventsEditor, this.enemies = new EnemiesEditor, this.items = new ItemsEditor, this.skills = new SkillsEditor, this.states = new StatesEditor, this.system = new SystemEditor, this.terms = new TermsEditor, this.tilesets = new TilesetsEditor, this.troops = new TroopsEditor, this.weapons = new WeaponsEditor];
+		this.editors = [
+			this.animations,
+			this.actors,
+			this.armors,
+			this.classes,
+			this.common_events,
+			this.enemies,
+			this.items,
+			this.skills,
+			this.states,
+			this.system,
+			this.terms,
+			this.tilesets,
+			this.troops,
+			this.weapons,
+		];
 	}
 
 	public update_data() {
-		return this.editors.map((editor) => editor.update_data());
+		return this.editors.map(function(editor: BaseEditor) {
+			editor.update_data();
+		});
 	}
 
 	public refresh_data(cb) {
@@ -191,4 +231,4 @@ class DatabaseEditor {
 	}
 }
 
-window.DbEditor = new DatabaseEditor;
+export default new DatabaseEditor;

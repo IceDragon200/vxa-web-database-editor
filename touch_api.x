@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+curl localhost:4567/api/actors
+curl localhost:4567/api/animations
+curl localhost:4567/api/armors
+curl localhost:4567/api/classes
+curl localhost:4567/api/common_events
+curl localhost:4567/api/enemies
+curl localhost:4567/api/items
+curl localhost:4567/api/skills
+curl localhost:4567/api/states
+curl localhost:4567/api/system
+curl localhost:4567/api/terms
+curl localhost:4567/api/tilesets
+curl localhost:4567/api/troops
+curl localhost:4567/api/weapons

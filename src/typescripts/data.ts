@@ -1,3 +1,5 @@
+import DbEditor from "database_editor";
+
 class DatabaseData {
 	public refresh() {
 		var elem, i, id, item, keys, name, option, _i, _len, _ref, _results;
@@ -45,7 +47,7 @@ class DatabaseData {
 	}
 }
 
-window.DbData = new DatabaseData;
+export default new DatabaseData;
 
 /*
   atype_id

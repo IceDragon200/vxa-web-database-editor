@@ -1,3 +1,30 @@
-== partial :'partial/page_title', locals: { title: "Common Events", tab: "common_events" }
+== partial :'partial/page_title', locals: { title: "Common Events", tab: "common_event" }
 
 .editor#common_events-page
+  .col-1_5
+    .group#common_events
+      == partial :'partial/list-items'
+
+  .col-4_5
+    .group#general
+      h2 General Settings
+
+      .row
+        dl.col-1_4
+          dt Name
+          dd
+            input#name type="text" value=""
+
+        dl.col-1_4
+          dt Trigger
+          dd
+            select#trigger
+
+        dl.col-1_4
+          dt Condition Switch
+          dd
+            select#condition_switch
+
+    .group#general
+      h2 Contents
+      input#contents type="list"

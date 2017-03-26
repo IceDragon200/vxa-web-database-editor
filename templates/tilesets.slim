@@ -1,3 +1,82 @@
 == partial :'partial/page_title', locals: { title: "Tilesets", tab: "tileset" }
 
 .editor#tilesets-page
+  .col-1_5
+    .group#common_events
+      == partial :'partial/list-items'
+
+  .col-4_5
+    .col-1_4
+      .group#general_settings
+        h2 General Settings
+        dl
+          dt Name:
+          dd
+            input type="text"
+
+        dl
+          dt Mode:
+          dd
+            select
+
+      .group#graphic
+        dl
+          dt A1 (Animation):
+          dd
+            select
+
+        dl
+          dt A2 (Ground):
+          dd
+            select
+
+        dl
+          dt A3 (Buildings):
+          dd
+            select
+
+        dl
+          dt A4 (Walls):
+          dd
+            select
+
+        dl
+          dt A5 (Normal):
+          dd
+            select
+
+        br
+
+        dl
+          dt B:
+          dd
+            select
+
+        dl
+          dt C:
+          dd
+            select
+
+        dl
+          dt D:
+          dd
+            select
+
+        dl
+          dt E:
+          dd
+            select
+
+    .col-2_4
+
+    .col-1_4
+      .buttons
+        button.row Passage
+        button.row Passage (4 dir)
+        button.row Ladder
+        button.row Bush
+        button.row Counter
+        button.row Damage Floor
+        button.row Terrain Tag
+
+      == partial :'partial/group-notebox'

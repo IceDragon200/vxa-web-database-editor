@@ -1,3 +1,233 @@
 == partial :'partial/page_title', locals: { title: "System", tab: "system" }
 
 .editor#system-page
+  .row
+    .col-1_5
+      .group#initial_party
+        h2 Initial Party
+        select.items size="12"
+
+    .col-3_5
+      .row
+        .col-3_4
+          .group#game_title
+            h2 Game Title
+            input type="text"
+
+        .col-1_4
+          .group#currency_unit
+            h2 Currency Unit
+            input type="text"
+
+      .row
+        .col-3_4
+          .group#vehicle_graphic
+            h2 Vehicle Graphic
+
+        .col-1_4
+          .group#window_color
+            h2 Window Color
+
+    .col-1_5
+      .group#options
+        h2 Options
+
+  .row
+    .col-1_5
+      .group#music
+        h2 Music
+        dl
+          dt Title Screen:
+          dd
+            select
+
+        dl
+          dt Battle:
+          dd
+            select
+
+        dl
+          dt Battle End:
+          dd
+            select
+
+        dl
+          dt Game Over:
+          dd
+            select
+
+        dl
+          dt Boat:
+          dd
+            select
+
+        dl
+          dt Ship:
+          dd
+            select
+
+        dl
+          dt Airship:
+          dd
+            select
+
+    .col-3_5
+      .group#sound_effects
+        h2 Sound Effects
+        .col-1_3
+          dl
+            dt Cursor:
+            dd
+              select
+
+          dl
+            dt OK:
+            dd
+              select
+
+          dl
+            dt Cancel:
+            dd
+              select
+
+          dl
+            dt Buzzer:
+            dd
+              select
+
+          dl
+            dt Equip:
+            dd
+              select
+
+          dl
+            dt Save:
+            dd
+              select
+
+          dl
+            dt Load:
+            dd
+              select
+
+          dl
+            dt Battle Start:
+            dd
+              select
+
+        .col-1_3
+          dl
+            dt Escape:
+            dd
+              select
+
+          dl
+            dt Enemy Attack:
+            dd
+              select
+
+          dl
+            dt Enemy Damage:
+            dd
+              select
+
+          dl
+            dt Enemy Collapse:
+            dd
+              select
+
+          dl
+            dt Boss Collapse 1:
+            dd
+              select
+
+          dl
+            dt Boss Collapse 2:
+            dd
+              select
+
+          dl
+            dt Actor Damage:
+            dd
+              select
+
+          dl
+            dt Actor Collapse:
+            dd
+              select
+
+        .col-1_3
+          dl
+            dt Recovery:
+            dd
+              select
+
+          dl
+            dt Miss:
+            dd
+              select
+
+          dl
+            dt Evasion:
+            dd
+              select
+
+          dl
+            dt Magic Evasion:
+            dd
+              select
+
+          dl
+            dt Reflection:
+            dd
+              select
+
+          dl
+            dt Shop:
+            dd
+              select
+
+          dl
+            dt Use Item:
+            dd
+              select
+
+          dl
+            dt Use Skill:
+            dd
+              select
+
+    .col-1_5
+      .group#starting_positions
+        h2 Starting Positions
+        dl
+          dt Player:
+          dd
+            select
+
+        dl
+          dt Boat:
+          dd
+            select
+
+        dl
+          dt Ship:
+          dd
+            select
+
+        dl
+          dt Airship:
+          dd
+            select
+
+      .group#title_screen
+        h2 Title Screen
+        dl
+          dt Graphic:
+          dd
+            select
+
+        .control
+          input type="checkbox"
+          label Draw Game Title
+

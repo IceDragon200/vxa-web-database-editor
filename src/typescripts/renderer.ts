@@ -1,3 +1,7 @@
+import RPG from "rpg";
+import Color from "core/color";
+import DbEditor from "database_editor";
+
 class DatabaseRenderer {
 	public page_symbol() {
 		if ($("#home-page").length > 0) {
@@ -32,11 +36,11 @@ class DatabaseRenderer {
 	}
 
 	public make_removable_button_element() {
-		return $("<button></button>").addClass(".removable").text("-");
+		return $("<button></button>").addClass("removable").text("-");
 	}
 
 	public make_addable_button_element() {
-		return $("<button></button>").addClass(".addable").text("+");
+		return $("<button></button>").addClass("addable").text("+");
 	}
 
 	public make_base_item_feature_element(feature) {
@@ -121,7 +125,7 @@ class DatabaseRenderer {
 		return elem;
 	}
 
-	public make_enemy_action_element(action) {
+	public make_enemy_action_element(action?) {
 		var condition, elem, rating, skill;
 		if (!action) {
 			action = {
@@ -155,7 +159,7 @@ class DatabaseRenderer {
 		return elem;
 	}
 
-	public make_animation_timing_element(timing) {
+	public make_animation_timing_element(timing?) {
 		var color_string, elem, flash, flash_string, flcolor, frame, se;
 		if (!timing) {
 			timing = {
@@ -163,7 +167,7 @@ class DatabaseRenderer {
 				se: {
 					name: "--"
 				},
-				flash_color: new RPG.Color,
+				flash_color: new Color(),
 				flash_scope: 0,
 				flash_duration: 0
 			};
@@ -268,7 +272,7 @@ class DatabaseRenderer {
 	public render_base_item(item) {
 		var features, general, notebox;
 		if (!item) {
-			item = new RPG.BaseItem;
+			item = new RPG.BaseItem();
 		}
 
 		general = $("#general");
@@ -288,7 +292,7 @@ class DatabaseRenderer {
 	public render_usable_item(item) {
 		var damage, effects, general, invocation;
 		if (!item) {
-			item = new RPG.UsableItem;
+			item = new RPG.UsableItem();
 		}
 
 		general = $("#general");
@@ -317,7 +321,7 @@ class DatabaseRenderer {
 	public render_equip_item(item) {
 		var general, i, param, parameter_changes, _i, _len, _ref, _results;
 		if (!item) {
-			item = new RPG.EquipItem;
+			item = new RPG.EquipItem();
 		}
 
 		general = $("#general");
@@ -339,7 +343,7 @@ class DatabaseRenderer {
 	public render_actor(item) {
 		var equipment, features, general, graphic, notebox;
 		if (!item) {
-			item = new RPG.Actor;
+			item = new RPG.Actor();
 		}
 
 		console.log("Rendering Actor " + item.id);
@@ -367,13 +371,13 @@ class DatabaseRenderer {
 		equipment.find("#shield").val(item.equips[1]);
 		equipment.find("#head").val(item.equips[2]);
 		equipment.find("#body").val(item.equips[3]);
-		return equipment.find("#accessory").val(item.equips[4]);
+		equipment.find("#accessory").val(item.equips[4]);
 	}
 
 	public render_class(item) {
 		var features, general, learnings, notebox;
 		if (!item) {
-			item = new RPG.Class;
+			item = new RPG.Class();
 		}
 
 		console.log("Rendering Class " + item.id);
@@ -390,13 +394,13 @@ class DatabaseRenderer {
 		general.find("#exp_params-2").val(item.exp_params[2]);
 		general.find("#exp_params-3").val(item.exp_params[3]);
 
-		return this.inject_class_learnings(learnings.find("tbody"), item.learnings);
+		this.inject_class_learnings(learnings.find("tbody"), item.learnings);
 	}
 
 	public render_skill(item) {
 		var general, invocation, required_weapon, using_message;
 		if (!item) {
-			item = new RPG.Skill;
+			item = new RPG.Skill();
 		}
 
 		console.log("Rendering Skill " + item.id);
@@ -418,13 +422,13 @@ class DatabaseRenderer {
 		using_message.find("#message2").val(item.message2);
 
 		required_weapon.find("#required_wtype_id1").val(item.required_wtype_id1);
-		return required_weapon.find("#required_wtype_id2").val(item.required_wtype_id2);
+		required_weapon.find("#required_wtype_id2").val(item.required_wtype_id2);
 	}
 
 	public render_item(item) {
 		var damage, effects, general, notebox;
 		if (!item) {
-			item = new RPG.Item;
+			item = new RPG.Item();
 		}
 
 		console.log("Rendering Item " + item.id);
@@ -437,13 +441,13 @@ class DatabaseRenderer {
 		this.render_usable_item(item);
 
 		general.find("#price").val(item.price);
-		return general.find("#consumable").val(item.consumable);
+		general.find("#consumable").val(item.consumable);
 	}
 
 	public render_weapon(item) {
 		var general;
 		if (!item) {
-			item = new RPG.Weapon;
+			item = new RPG.Weapon();
 		}
 
 		console.log("Rendering Weapon " + item.id);
@@ -453,13 +457,13 @@ class DatabaseRenderer {
 		this.render_equip_item(item);
 
 		general.find("#wtype_id").val(item.wtype_id);
-		return general.find("#animation_id").val(item.animation_id);
+		general.find("#animation_id").val(item.animation_id);
 	}
 
 	public render_armor(item) {
 		var general;
 		if (!item) {
-			item = new RPG.Armor;
+			item = new RPG.Armor();
 		}
 
 		console.log("Rendering Armor " + item.id);
@@ -469,13 +473,13 @@ class DatabaseRenderer {
 		this.render_equip_item(item);
 
 		general.find("#atype_id").val(item.atype_id);
-		return general.find("#etype_id").val(item.etype_id);
+		general.find("#etype_id").val(item.etype_id);
 	}
 
 	public render_enemy(item) {
 		var actions, features, general, i, p, rewards, _i, _len, _ref;
 		if (!item) {
-			item = new RPG.Enemy;
+			item = new RPG.Enemy();
 		}
 
 		console.log("Rendering Enemy " + item.id);
@@ -496,26 +500,26 @@ class DatabaseRenderer {
 		rewards.find("#exp").val(item.exp);
 		rewards.find("#gold").val(item.gold);
 
-		return this.inject_enemy_actions(actions.find("tbody"), item.actions);
+		this.inject_enemy_actions(actions.find("tbody"), item.actions);
 	}
 
 	public render_troop(item) {
 		var general;
 		if (!item) {
-			item = new RPG.Troop;
+			item = new RPG.Troop();
 		}
 
 		console.log("Rendering Troop " + item.id);
 
 		general = $("#general");
 
-		return general.find("#name").val(item.name);
+		general.find("#name").val(item.name);
 	}
 
 	public render_state(item) {
 		var general, messages, removal_conditions;
 		if (!item) {
-			item = new RPG.State;
+			item = new RPG.State();
 		}
 
 		console.log("Rendering State " + item.id);
@@ -542,13 +546,13 @@ class DatabaseRenderer {
 		messages.find("#message1").val(item.message1);
 		messages.find("#message2").val(item.message2);
 		messages.find("#message3").val(item.message3);
-		return messages.find("#message4").val(item.message4);
+		messages.find("#message4").val(item.message4);
 	}
 
 	public render_animation(item) {
 		var frames, general, timing;
 		if (!item) {
-			item = new RPG.Animation;
+			item = new RPG.Animation();
 		}
 
 		console.log("Rendering Animation " + item.id);
@@ -565,24 +569,24 @@ class DatabaseRenderer {
 		general.find("#animation_name2").val(item.animation_name2);
 
 		this.inject_animation_timings(timing.find("tbody"), item.timings);
-		return this.inject_animation_frames(frames, item.frames);
+		this.inject_animation_frames(frames, item.frames);
 	}
 
 	public render_system(system) {
 		if (!system) {
-			return system = new RPG.System;
+			return system = new RPG.System();
 		}
 	}
 
 	public render_terms(system) {
 		var atypes, basic, commands, elements, etypes, i, params, stypes, t, terms, wtypes, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref, _ref1, _ref2, _ref3, _results;
 		if (!system) {
-			system = new RPG.System;
+			system = new RPG.System();
 		}
 
 		terms = system.terms;
 		if (!terms) {
-			terms = new RPG.System.Terms;
+			terms = new RPG.System_Terms();
 		}
 
 		elements = $("#elements");
@@ -778,7 +782,7 @@ class DatabaseRenderer {
 	}
 
 	public mark_active_tab() {
-		return $("#tab-" + (this.page_symbol())).toggleClass("active", true);
+		return $("#tab-" + this.page_symbol()).toggleClass("active", true);
 	}
 
 	public render_actor_tab() {
@@ -846,4 +850,4 @@ class DatabaseRenderer {
 	}
 }
 
-window.DbRenderer = new DatabaseRenderer;
+export default new DatabaseRenderer;
